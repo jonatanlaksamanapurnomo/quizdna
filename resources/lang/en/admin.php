@@ -125,5 +125,101 @@ return [
         ],
     ],
 
+    'exam' => [
+        'title' => 'Exams',
+
+        'actions' => [
+            'index' => 'Exams',
+            'create' => 'New Exam',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'exam_name' => 'Exam name',
+            'exam_code' => 'Exam code',
+            'exam_start' => 'Exam start',
+            'exam_end' => 'Exam end',
+            
+        ],
+    ],
+
+    'question' => [
+        'title' => 'Questions',
+
+        'actions' => [
+            'index' => 'Questions',
+            'create' => 'New Question',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'question' => 'Question',
+            'score' => 'Score',
+            'use_typingdna' => 'Use typingdna',
+            'check_plagiarism' => 'Check plagiarism',
+            
+        ],
+    ],
+
+    'exam' => [
+        'title' => 'Exams',
+
+        'actions' => [
+            'index' => 'Exams',
+            'create' => 'New Exam',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'exam_name' => 'Exam name',
+            'exam_code' => 'Exam code',
+            'exam_start' => 'Exam start',
+            'exam_end' => 'Exam end',
+            
+        ],
+    ],
+
+    'question' => [
+        'title' => 'Questions',
+
+        'actions' => [
+            'index' => 'Questions',
+            'create' => 'New Question',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'question' => 'Question',
+            'score' => 'Score',
+            'exam_id' => 'Exam',
+            'use_typingdna' => 'Use typingdna',
+            'check_plagiarism' => 'Check plagiarism',
+            
+        ],
+    ],
+
+    'exam' => [
+        'title' => 'Exams',
+
+        'actions' => [
+            'index' => 'Exams',
+            'create' => 'New Exam',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'exam_name' => 'Exam name',
+            'exam_code' => 'Exam code',
+            'exam_start' => 'Exam start',
+            'exam_end' => 'Exam end',
+            
+        ],
+    ],
+
     // Do not delete me :) I'm used for auto-generation
 ];

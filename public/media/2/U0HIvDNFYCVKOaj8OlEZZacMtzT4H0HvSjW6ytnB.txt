@@ -1,0 +1,68 @@
+1. buat directory 
+ - hadoop fs -mkdir /basdattbd
+ - hadoop fs -mkdir /basdattbd/electronic_sales
+   put file 
+ - hadoop fs -put C:\Users\ASUS\Downloads\data\dataset\electronic_sales_small\* /basdattbd/electronic_sales
+ - hadoop fs -put C:\Users\ASUS\Downloads\data\dataset\electronic_sales\* /basdattbd/electronic_sales 
+
+
+
+
+2. create table electronic_sales (
+	order_id STRING,
+	product STRING,
+	quantity_ordered INT , 
+	price_each DOUBLE,
+	ordered_date TIMESTAMP, 
+	purcahse_address STRING
+) PARTITIONED BY (month STRING)
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY ","
+TBLPROPERTIES ('skip.header.line.count' = '1');
+
+ALTER TABLE electronic_sales  SET SERDEPROPERTIES ("timestamp.formats"="dd-MM-yyyy HH:mm");
+
+
+LOAD DATA INPATH 'hdfs://localhost:50071/basdattbd/electronic_sales/Sales_January_2019_small.csv' INTO TABLE electronic_sales PARTITION(month="JAN")
+LOAD DATA INPATH 'hdfs://localhost:50071/basdattbd/electronic_sales/Sales_February_2019_small.csv' INTO TABLE electronic_sales PARTITION(month="FEB")
+LOAD DATA INPATH 'hdfs://localhost:50071/basdattbd/electronic_sales/Sales_March_2019_small.csv' INTO TABLE electronic_sales PARTITION(month="MAR")
+LOAD DATA INPATH 'hdfs://localhost:50071/basdattbd/electronic_sales/Sales_December_2019.csv' INTO TABLE electronic_sales PARTITION(month="DEC")
+
+
+
+3a. INSERT OVERWRITE LOCAL DIRECTORY '/basdattbd/electronic_sales/result.csv' ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' select product , count(quantity_ordered) as   total_order   from electronic_sales  where month = "DEC"   group by product order by total_order desc limit 10;
+
+
+3b. select ordered_date  , sum(price_each) from electronic_sales where month ="JUL" group by ordered_date 
+
+4 data akan terhapus karena table yang kami buat bukanlah table eksternal sehingga ketika data di load data secara otoamtis akan di pindahkan dari hadoop hive 
+
+
+
+
+2 
+hadoop fs -mkdir /basdattbd/airline_dalays
+
+
+
+create external table airline_dalays (
+	fl_date DATE,
+	op_carrier STRING , 
+	op_carrier_fl_num STRING , 
+	origin STRING, 
+	dest STRING , 
+	crs_dep_time DOUBLE , 
+	dep_time DOUBLE ,
+	dep_delay DOUBLE
+)PARTITIONED BY (year STRING)
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY ","
+TBLPROPERTIES ('skip.header.line.count' = '1');
+
+LOAD DATA INPATH 'hdfs://localhost:50071/basdattbd/airline_dalays/2016_small.csv' INTO TABLE airline_dalays PARTITION(year="2016")
+LOAD DATA INPATH 'hdfs://localhost:50071/basdattbd/airline_dalays/2017_small.csv' INTO TABLE airline_dalays PARTITION(year="2017")
+LOAD DATA INPATH 'hdfs://localhost:50071/basdattbd/airline_dalays/2018_2019_small.csv' INTO TABLE airline_dalays PARTITION(year="2019")
+
+
+
+insert overwrite local directory 'Desktop/svk1.csv' row format delimited fields terminated by ',' select * from airline_dalays limit 10;

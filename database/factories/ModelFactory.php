@@ -82,3 +82,43 @@ $factory->define(App\Models\Quiz::class, static function (Faker\Generator $faker
         
     ];
 });
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Exam::class, static function (Faker\Generator $faker) {
+    return [
+        'exam_name' => $faker->sentence,
+        'exam_code' => $faker->sentence,
+        'exam_start' => $faker->dateTime,
+        'exam_end' => $faker->dateTime,
+        'created_at' => $faker->dateTime,
+        'updated_at' => $faker->dateTime,
+        
+        
+    ];
+});
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Question::class, static function (Faker\Generator $faker) {
+    return [
+        'question' => $faker->text(),
+        'score' => $faker->randomNumber(5),
+        'use_typingdna' => $faker->boolean(),
+        'check_plagiarism' => $faker->boolean(),
+        'created_at' => $faker->dateTime,
+        'updated_at' => $faker->dateTime,
+        
+        
+    ];
+});
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Question::class, static function (Faker\Generator $faker) {
+    return [
+        'question' => $faker->text(),
+        'score' => $faker->randomNumber(5),
+        'exam_id' => $faker->randomNumber(5),
+        'use_typingdna' => $faker->boolean(),
+        'check_plagiarism' => $faker->boolean(),
+        'created_at' => $faker->dateTime,
+        'updated_at' => $faker->dateTime,
+        
+        
+    ];
+});
