@@ -61,10 +61,10 @@
 				<div class="card">
 					<div class="card-block">
 						<auth-form
-								:action="'http://localhost:8000/signup'"
+								:action="'/signup'"
 								:data="{}"
 								inline-template>
-							<form class="form-horizontal" role="form" method="POST" action="http://localhost:8000/signup" novalidate>
+							<form class="form-horizontal" role="form" method="POST" action="/signup" novalidate>
                                 {{csrf_field()}}
                                 <div align="center" class="auth-body" style="padding-bottom: 12px;">
 									<h1 class="auth-title">Sign Up</h1>
@@ -82,7 +82,7 @@
                                     <div class="form-group" :class="{'has-danger': errors.has('fullname'), 'has-success': fields.fullname && fields.fullname.valid }">
 										<label for="fullname" style="color:#4F4F4F;">Full Name</label>
 										<div class="input-group input-group--custom" style="border-radius: 4px;">
-                                            <input type="text" v-model="form.fullname" v-validate="'required'" class="form-control" :class="{'form-control-danger': errors.has('fullname'), 'form-control-success': fields.fullname && fields.fullname.valid}" id="fullname" name="fullname" placeholder="John Doe" style="border-left: 1px solid #b9c8de; border-radius: 4px;" onchange="checkData()">
+                                            <input type="text" v-model="form.fullname" v-validate="'required'" class="form-control" :class="{'form-control-danger': errors.has('fullname'), 'form-control-success': fields.fullname && fields.fullname.valid}" id="fullname" name="name" placeholder="John Doe" style="border-left: 1px solid #b9c8de; border-radius: 4px;" onchange="checkData()">
 										</div>
 										<div class="form-control-feedback form-text"></div>
 									</div>
@@ -98,7 +98,7 @@
                                     <div class="form-group" :class="{'has-danger': errors.has('confirmpassword'), 'has-success': fields.confirmpassword && fields.confirmpassword.valid }">
 										<label for="confirmpassword" style="color:#4F4F4F;">Confirm Password</label>
 										<div class="input-group input-group--custom" style="border-radius: 4px;">
-											<input type="confirmpassword" v-model="form.confirmpassword"  class="form-control" :class="{'form-control-danger': errors.has('password'), 'form-control-success': fields.confirmpassword && fields.confirmpassword.valid}" id="confirmpassword" name="confirmpassword" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;" style="border-left: 1px solid #b9c8de; border-radius: 4px;" onchange="checkData()">
+											<input type="password" v-model="form.confirmpassword"  class="form-control" :class="{'form-control-danger': errors.has('password'), 'form-control-success': fields.confirmpassword && fields.confirmpassword.valid}" id="confirmpassword" name="confirmpassword" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;" style="border-left: 1px solid #b9c8de; border-radius: 4px;" onchange="checkData()">
 										</div>
 										<div class="form-control-feedback form-text"></div>
 									</div>

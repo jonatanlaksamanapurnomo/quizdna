@@ -19,9 +19,27 @@ use Illuminate\Http\Response;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
+use Illuminate\Http\Request;
 
 class StudentsController extends Controller
 {
+
+    public function login(Request $request){
+
+    }
+
+    
+    public function signup(Request $request){
+        // Store the Student
+        $student = new Student;
+        $student->name = $request->name;
+        $student->email = $request->email;
+        $student->password = bcrypt($request->password);
+        $student->save();
+
+        dd("berhasil");
+        return redirect('admin/students');
+    }
 
     /**
      * Display a listing of the resource.

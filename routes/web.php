@@ -16,6 +16,10 @@ Route::get('/loginn', function () {
     return view('login');
 });
 
+Route::post('/login', 'StudentsController@login');
+Route::post('/signup', 'Admin\StudentsController@signup');
+
+
 Route::get('/signup', function () {
     return view('signup');
 });
@@ -24,8 +28,8 @@ Route::get('/register', function () {
     return view('register');
 });
 
-Route::get('/hasil', function () {
-    return view('hasil');
+Route::get('/result', function () {
+    return view('result');
 });
 
 Route::get('/', function () {
