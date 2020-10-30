@@ -6,14 +6,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <meta name="csrf-token" content="LCu3zr6N9oOZBI8M15wjImcZkLpYbYDltDySQ6Nb">
-
-
-    <title>Hasil - Exam Checker</title>
-
+    
+    <title>Result - Exam Checker</title>
     <link href="/css/admin.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Jura:wght@500&display=swap" rel="stylesheet">
     <style>
 
         form {
@@ -52,7 +48,7 @@
         }
 
         .progress-ring__circle {
-            transition: 0.35s stroke-dashoffset;
+            transition: 1s stroke-dashoffset;
             transform: rotate(-90deg);
             transform-origin: 50% 50%;
         }
@@ -103,24 +99,15 @@
                                     height="120">
                                     <circle
                                         class="progress-ring__circle"
-                                        stroke="white"
+                                        stroke="red"
                                         stroke-width="4"
                                         fill="transparent"
                                         r="52"
                                         cx="60"
-                                        cy="60"/>
+                                        cy="60" style="display:none;"/>
                                 </svg>
-
-                                <input
-                                    value="35"
-                                    type="number"
-                                    step="5"
-                                    min="0"
-                                    max="100"
-                                    placeholder="progress"
-                                >
-                                <h1 class="auth-title">Register</h1>
-                                <p class="auth-subtitle">Please type the text below (typos allowed).</p>
+                                <h1 class="auth-title">Authentication Failed!</h1>
+                                <p class="auth-subtitle">The score obtained is not sufficient. Try to type consistently.</p>
                             </div>
                             <div class="auth-body">
                                 <div class="form-group">
@@ -142,6 +129,7 @@
 <script src="/js/admin.js"></script>
 <script type="text/javascript">
     var circle = document.querySelector('circle');
+    
     var radius = circle.r.baseVal.value;
     var circumference = radius * 2 * Math.PI;
 
@@ -152,16 +140,13 @@
         const offset = circumference - percent / 100 * circumference;
         circle.style.strokeDashoffset = offset;
     }
+    
+    setProgress(0);
 
-    const input = document.querySelector('input');
-    setProgress(input.value);
-
-    input.addEventListener('change', function (e) {
-        if (input.value < 101 && input.value > -1) {
-            setProgress(input.value);
-        }
-    })
-
+    circle.style.display = 'block';
+    window.onload = function(){
+        setProgress(90);
+    }
 </script>
 </body>
 
