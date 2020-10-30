@@ -30,17 +30,23 @@
                                     <div class="card-header" id="headingOne">
                                         <h2 class="mb-0">
                                             <button class="btn btn-link" type="button" data-toggle="collapse"
-                                                    data-target="{{'#'. $item->id}}" aria-expanded="true"
+                                                    data-target="#a"
+                                                    aria-expanded="true"
                                                     aria-controls="collapseOne">
                                                 view more
                                             </button>
                                         </h2>
                                     </div>
 
-                                    <div id="{{$item->id}}" class="collapse show" aria-labelledby="headingOne"
+                                    <div id="a" class="collapse show"
+                                         aria-labelledby="headingOne"
                                          data-parent="#accordionExample">
                                         <div class="card-body">
                                             {{$item->question}}
+                                        </div>
+                                        <hr/>
+                                        <div class="card-body">
+                                            {{$item->answer}}
                                         </div>
                                     </div>
                                 </div>

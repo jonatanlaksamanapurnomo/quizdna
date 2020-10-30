@@ -221,5 +221,24 @@ return [
         ],
     ],
 
+    'student' => [
+        'title' => 'Students',
+
+        'actions' => [
+            'index' => 'Students',
+            'create' => 'New Student',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'email' => 'Email',
+            'password' => 'Password',
+            'name' => 'Name',
+            'exam_id' => 'Exam',
+            
+        ],
+    ],
+
     // Do not delete me :) I'm used for auto-generation
 ];

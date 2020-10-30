@@ -122,3 +122,16 @@ $factory->define(App\Models\Question::class, static function (Faker\Generator $f
         
     ];
 });
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Student::class, static function (Faker\Generator $faker) {
+    return [
+        'email' => $faker->email,
+        'password' => bcrypt($faker->password),
+        'name' => $faker->firstName,
+        'exam_id' => $faker->randomNumber(5),
+        'created_at' => $faker->dateTime,
+        'updated_at' => $faker->dateTime,
+        
+        
+    ];
+});
