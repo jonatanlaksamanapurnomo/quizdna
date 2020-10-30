@@ -116832,6 +116832,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _quiz__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./quiz */ "./resources/js/admin/quiz/index.js");
 /* harmony import */ var _exam__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./exam */ "./resources/js/admin/exam/index.js");
 /* harmony import */ var _question__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./question */ "./resources/js/admin/question/index.js");
+/* harmony import */ var _student__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./student */ "./resources/js/admin/student/index.js");
+
 
 
 
@@ -117059,6 +117061,66 @@ Vue.component('quiz-listing', {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Listing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Listing */ "./resources/js/admin/quiz/Listing.js");
 /* harmony import */ var _Form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Form */ "./resources/js/admin/quiz/Form.js");
+
+
+
+/***/ }),
+
+/***/ "./resources/js/admin/student/Form.js":
+/*!********************************************!*\
+  !*** ./resources/js/admin/student/Form.js ***!
+  \********************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Form/AppForm */ "./resources/js/admin/app-components/Form/AppForm.js");
+
+Vue.component('student-form', {
+  mixins: [_app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  data: function data() {
+    return {
+      form: {
+        email: '',
+        password: '',
+        name: '',
+        exam_id: ''
+      }
+    };
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/admin/student/Listing.js":
+/*!***********************************************!*\
+  !*** ./resources/js/admin/student/Listing.js ***!
+  \***********************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Listing/AppListing */ "./resources/js/admin/app-components/Listing/AppListing.js");
+
+Vue.component('student-listing', {
+  mixins: [_app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__["default"]]
+});
+
+/***/ }),
+
+/***/ "./resources/js/admin/student/index.js":
+/*!*********************************************!*\
+  !*** ./resources/js/admin/student/index.js ***!
+  \*********************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Listing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Listing */ "./resources/js/admin/student/Listing.js");
+/* harmony import */ var _Form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Form */ "./resources/js/admin/student/Form.js");
 
 
 

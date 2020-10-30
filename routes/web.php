@@ -161,3 +161,19 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
         });
     });
 });
+
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
+        Route::prefix('students')->name('students/')->group(static function() {
+            Route::get('/',                                             'StudentsController@index')->name('index');
+            Route::get('/create',                                       'StudentsController@create')->name('create');
+            Route::post('/',                                            'StudentsController@store')->name('store');
+            Route::get('/{student}/edit',                               'StudentsController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'StudentsController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{student}',                                   'StudentsController@update')->name('update');
+            Route::delete('/{student}',                                 'StudentsController@destroy')->name('destroy');
+        });
+    });
+});
