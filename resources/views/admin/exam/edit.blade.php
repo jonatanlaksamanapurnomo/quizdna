@@ -3,8 +3,6 @@
 @section('title', trans('admin.exam.actions.edit', ['name' => $exam->id]))
 
 @section('body')
-    {{--    {{dd($exam->questions)}}--}}
-
     <div class="container-xl">
         <div class="card">
 
@@ -25,7 +23,7 @@
                     <div class="card-body">
                         @include('admin.exam.components.form-elements')
                         <div class="accordion" id="accordionExample">
-                            @foreach($exam->questions as $item)
+                            @foreach($exam->students as $item)
                                 <div class="card">
                                     <div class="card-header" id="headingOne">
                                         <h2 class="mb-0">
@@ -42,12 +40,9 @@
                                          aria-labelledby="headingOne"
                                          data-parent="#accordionExample">
                                         <div class="card-body">
-                                            {{$item->question}}
+                                            {{$item->name}}
                                         </div>
                                         <hr/>
-                                        <div class="card-body">
-                                            {{$item->answer}}
-                                        </div>
                                     </div>
                                 </div>
                             @endforeach

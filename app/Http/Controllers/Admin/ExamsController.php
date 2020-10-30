@@ -114,7 +114,6 @@ class ExamsController extends Controller
     public function edit(Exam $exam)
     {
         $this->authorize('admin.exam.edit', $exam);
-//        dd($exam->questions[0]->question);
 
         return view('admin.exam.edit', [
             'exam' => $exam

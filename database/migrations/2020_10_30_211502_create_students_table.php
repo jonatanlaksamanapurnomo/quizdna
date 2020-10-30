@@ -18,8 +18,6 @@ class CreateStudentsTable extends Migration
             $table->string("email");
             $table->string("password");
             $table->string("name");
-            $table->integer('exam_id')->unsigned();
-            $table->foreign('exam_id')->references('id')->on('exams')->onDelete('cascade');
             $table->timestamps();
         });
     }
