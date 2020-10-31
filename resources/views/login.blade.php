@@ -60,10 +60,10 @@
 				<div class="card">
 					<div class="card-block">
 						<auth-form
-								:action="'http://localhost:8000/login'"
+								:action="'/student/login/password'"
 								:data="{}"
 								inline-template>
-							<form class="form-horizontal" role="form" method="POST" action="http://localhost:8000/login" novalidate>
+							<form class="form-horizontal" role="form" method="POST" action="/student/login/password" novalidate>
                                 {{csrf_field()}}
 								<div align="center" class="auth-body" style="padding-bottom: 12px;">
 									<h1 class="auth-title">Log In</h1>
@@ -92,12 +92,14 @@
 										<input type="hidden" name="remember" value="1">
 										<button type="submit" class="btn btn-primary btn-block btn-spinner" id="btn-login"><i class="fa"></i> Log In</button>
                                     </div>
-                                    <div class="form-group">
-										<input type="hidden" name="remember" value="1">
-                                        <button type="submit" class="btn btn-primary btn-block btn-spinner" id="btn-typedna"><i class="fa"></i>
-                                            Log In with   <img width="100px" src="https://www.typingdna.com/assets/images/typingdna-logo-blue.svg" aria-hidden="true">
-                                        </button>
-									</div>
+                                    <br>
+                                    <a href="/student/authenticate" style="text-decoration: none">
+                                        <div class="form-group">
+                                            <div type="submit" class="btn btn-primary btn-block btn-spinner" id="btn-typedna"><i class="fa"></i>
+                                                Log In with   <img width="100px" src="https://www.typingdna.com/assets/images/typingdna-logo-blue.svg" aria-hidden="true">
+                                            </div>
+                                        </div>
+                                    </a>
 								</div>
 							</form>
 						</auth-form>

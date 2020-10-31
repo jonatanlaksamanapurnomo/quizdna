@@ -61,10 +61,10 @@
 				<div class="card">
 					<div class="card-block">
 						<auth-form
-								:action="'/signup'"
+								:action="'/student/signup'"
 								:data="{}"
 								inline-template>
-							<form class="form-horizontal" role="form" method="POST" action="/signup" novalidate>
+							<form class="form-horizontal" role="form" method="POST" action="/student/signup" novalidate>
                                 {{csrf_field()}}
                                 <div align="center" class="auth-body" style="padding-bottom: 12px;">
 									<h1 class="auth-title">Sign Up</h1>
@@ -104,14 +104,10 @@
 									</div>
 
 									<div class="form-group">
-										<input type="hidden" name="remember" value="1">
 										<button type="submit" class="btn btn-primary btn-block btn-spinner" id="btn-signup" disabled><i class="fa"></i>Create Account</button>
                                         <br>
                                         <p align="center" class="auth-subtitle">By joining, you agree to <span style="color:#2F80ED;"><b>Terms</b></span> and <span style="color:#2F80ED;"><b>Privacy Policy.</b></span></p>
                                     </div>
-                                    <!-- <div align="center" class="auth-header">
-                                        
-                                    </div> -->
 								</div>
 							</form>
 						</auth-form>

@@ -20,6 +20,10 @@
             href="https://fonts.googleapis.com/css2?family=Jura:wght@500&display=swap"
             rel="stylesheet"
         />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@700;800&display=swap"
+            rel="stylesheet"
+        />
         <style>
             form {
                 box-shadow: 0px 8px 40px rgba(9, 44, 76, 0.16);
@@ -40,15 +44,8 @@
                 line-height: 22px;
             }
 
-            #btn-register {
+            #btn-authenticate {
                 background: #092c4c;
-                border-radius: 8px;
-            }
-
-            #btn-typedna {
-                background: #0d5e9d;
-                border: 2px solid #0d5e9d;
-                box-sizing: border-box;
                 border-radius: 8px;
             }
         </style>
@@ -78,7 +75,7 @@
                 </svg>
             </div>
             <div class="row align-items-center justify-content-center auth">
-                <div class="col-md-6 col-lg-5">
+                <div class="col-md-6 col-lg-8">
                     <div class="card">
                         <div class="card-block">
                             <auth-form
@@ -98,15 +95,60 @@
                                     <div
                                         align="center"
                                         class="auth-body"
-                                        style="padding-bottom: 12px"
+                                        style="padding-bottom: 12px;"
                                     >
-                                        <h1 class="auth-title" style="font-size: 45px;">Register</h1>
-                                        <p class="auth-subtitle" id="message" style="color: black;">
-                                            Please type the text below (typos
-                                            allowed).
-                                        </p>
+                                        <h1
+                                            style="font-size: 45px; font-family: Inter; font-style: normal; font-weight: bold; font-size: 56px; line-height: 62px; text-align: center; color: #092C4C;"
+                                        >
+                                            Authentication
+                                        </h1>
                                     </div>
-                                    <div class="auth-body" style="padding-top: 15px;">
+                                    <div
+                                        class="auth-body"
+                                        style="padding: 20px 50px 20px 50px;"
+                                    >
+                                        <div
+                                            class="form-group"
+                                            :class="{'has-danger': errors.has('email'), 'has-success': fields.email && fields.email.valid }"
+                                        >
+                                            <label
+                                                for="email"
+                                                style="color:#4F4F4F;"
+                                                >Email</label
+                                            >
+                                            <div
+                                                class="input-group input-group--custom"
+                                                style="border-radius: 4px;"
+                                            >
+                                                <input
+                                                    type="text"
+                                                    v-model="form.email"
+                                                    v-validate="'required|email'"
+                                                    class="form-control"
+                                                    :class="{'form-control-danger': errors.has('email'), 'form-control-success': fields.email && fields.email.valid}"
+                                                    id="email"
+                                                    name="email"
+                                                    placeholder="name@domain.com"
+                                                    style="border-left: 1px solid #b9c8de; border-radius: 4px;"
+                                                />
+                                            </div>
+                                            <div
+                                                class="form-control-feedback form-text"
+                                            ></div>
+                                        </div>
+                                        <div
+                                            class="form-group"
+                                            style="margin-bottom: 10px;"
+                                        >
+                                            <p
+                                                class="auth-subtitle"
+                                                id="message"
+                                                style="color: black; font-size: 15px;"
+                                            >
+                                                Please type the text below
+                                                (typos allowed).
+                                            </p>
+                                        </div>
                                         <div
                                             class="form-group"
                                             :class="{'has-danger': errors.has('text'), 'has-success': fields.text && fields.text.valid }"
@@ -159,14 +201,14 @@
                                             <button
                                                 type="submit"
                                                 class="btn btn-primary btn-block btn-spinner"
-                                                id="btn-register"
+                                                id="btn-authenticate"
                                             >
                                                 <i
                                                     class="fa"
                                                     id="spinner"
                                                     onsubmit="authenticate()"
                                                 ></i
-                                                >Next
+                                                >Authenticate
                                             </button>
                                             <br />
                                         </div>
@@ -183,25 +225,23 @@
             src="https://api.typingdna.com/scripts/typingdna.js"
         ></script>
         <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
-        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/core.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/md5.js"></script>
         <script src="/js/admin.js"></script>
         <script type="text/javascript">
-            var id = "{{ session('id') }}";
-            if (id == ""){
-                id = localStorage.getItem("id");
-            } else {
-                localStorage.setItem("id", "{{ session('id') }}");
+            var id = localStorage.getItem("id");
+            if (id == "") {
+                var email = document.getElementById("email").value;
+                id = CryptoJS.MD5(email).toString();
             }
-            
-            document.getElementById("btn-register").disabled = true;
 
             var text = "The way i type can authenticate me on this website.";
             var textToType = document.getElementById("textToType");
             var tdna = new TypingDNA();
-            tdna.start();
             var tp = "";
 
-            var highlight = function (e) {                
+            var highlight = function(e) {
+                tdna.start();
                 var length = document.getElementById("text").value.length;
                 textToType.innerHTML =
                     "<span class='highlight' id='highlighted'>" +
@@ -211,57 +251,50 @@
 
                 var textTyped = document.getElementById("text").value;
                 if (text === textTyped) {
-                    document.getElementById("btn-register").disabled = false;
+                    document.getElementById(
+                        "btn-authenticate"
+                    ).disabled = false;
                 }
             };
             var attempt = 0;
-            var authenticate = function (e) {
+            var authenticate = function(e) {
                 if (e.preventDefault) e.preventDefault();
                 console.log("trigger");
 
                 var tp = tdna.get(60);
                 var params = {
-                    "_token": "{{ csrf_token() }}",
+                    _token: "{{ csrf_token() }}",
                     tp: tp,
-                    'userId': id,
+                    userId: id
                 };
 
                 $.ajax({
                     type: "POST",
-                    url: "/student/save",
+                    url: "/student/verify",
                     data: params,
-                    success: function(data, status, jqXHR){
+                    success: function(data, status, jqXHR) {
+                        console.log("cek berapa %");
                         console.log(data);
-                        document.getElementById("text").value = "";
-                        document.getElementById("spinner").classList.remove("fa-spinner");
-                        textToType.innerHTML = text;
-                        document.getElementById("btn-register").disabled = true;
-                        
-                        document.getElementById("message").innerHTML = "Please type the text below again (typos allowed).";
-                        attempt = attempt + 1;
-
-                        if (attempt == 2) {
-                            localStorage.setItem("oldTp", tp);
-                            window.location.href = "/student/login";
-                            return true;
-                        }
+                        document
+                            .getElementById("spinner")
+                            .classList.remove("fa-spinner");
+                        localStorage.setItem("result", data);
+                        localStorage.setItem("newTp", tp);
+                        window.location.href = "/student/result";
                     },
-                    error: function(){
+                    error: function() {
                         document.getElementById("text").value = "";
-                        document.getElementById("spinner").classList.remove("fa-spinner");
-                        document.getElementById("btn-register").disabled = true;
                     }
                 });
-                document.getElementById("btn-register").removeAttribute("style");
-                return false;
+                return;
             };
 
             var form = document.getElementById("my-form");
-        if (form.attachEvent) {
-          form.attachEvent("submit", authenticate);
-        } else {
-          form.addEventListener("submit", authenticate);
-        }
+            if (form.attachEvent) {
+                form.attachEvent("submit", authenticate);
+            } else {
+                form.addEventListener("submit", authenticate);
+            }
         </script>
     </body>
 </html>

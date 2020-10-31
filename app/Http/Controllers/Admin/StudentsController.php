@@ -19,9 +19,39 @@ use Illuminate\Http\Response;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
+use Illuminate\Http\Request;
 
 class StudentsController extends Controller
 {
+
+    public function loginPassword(Request $request){
+        $student = Student::where('email', $request->email)->firstOrFail();
+        if (!Hash::check($student->password, bcrypt($request->password))) {
+            return ' not match!!';
+        }
+        return redirect('/student/register');
+    }
+
+    public function loginTypeDNA(Request $request){
+        $student = Student::where('email', $request->email)->firstOrFail();
+
+        return response()->json([
+            'userId' => '',
+        ]);
+    }
+
+    public function signup(Request $request){
+        $student = new Student;
+        $student->email = $request->email;
+        $student->name = $request->name;
+        $student->password = bcrypt($request->password);
+        $student->save();
+
+        // return response()->json([
+        //     'id' => $student->id,
+        // ]);
+        return redirect('/student/register')->with('id', md5($student->email)); 
+    }
 
     /**
      * Display a listing of the resource.

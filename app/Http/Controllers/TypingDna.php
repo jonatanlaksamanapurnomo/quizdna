@@ -157,7 +157,7 @@ class typingdna extends Controller
 
         $newtp = $request->newTp;
         $oldtp = $request->oldTp;
-        isset($request->quality) ? $quality = $request->quality : $quality = 1;
+        $quality = 1;
         $apiKey = $this->apiKey;
         $apiSecret = $this->apiSecret;
         $typingdna_url = urldecode($this->typingdnaurl . '/match');
@@ -175,7 +175,8 @@ class typingdna extends Controller
         $opts = array(
             'http' => array(
                 'method' => 'POST',
-                'header' => 'Authorization: Basic ' . base64_encode("$apiKey:$apiSecret"),
+                'header' => "Content-type: " . "application/x-www-form-urlencoded" . "\r\n" .
+                'Authorization: Basic ' . base64_encode("$apiKey:$apiSecret"),
                 'content' => $postdata,
             ),
         );
@@ -185,7 +186,7 @@ class typingdna extends Controller
          * Returns a result: 1 for true match, 0 for false
          * match or returns the error if applicable
          *************************************************/
-        return $response->{'result'};
+        return $response->{'score'};
     }
 
 

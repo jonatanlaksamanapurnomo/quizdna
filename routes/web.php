@@ -12,38 +12,31 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/loginn', function () {
-    return view('login');
+
+Route::prefix('student')->name('student/')->group(static function() {
+    Route::get('/signup', function () { return view('signup'); });
+    Route::get('/register', function () { return view('register'); })->name('register');
+
+    Route::get('/login', function () { return view('login'); });
+
+    Route::get('/authenticate', function () { return view('authenticate'); });
+    Route::get('/result', function () { return view('result'); });
+
+
+    Route::post('/login/password', 'Admin\StudentsController@loginPassword');
+    Route::post('/login/typedna', 'Admin\StudentsController@loginTypeDNA');
+    Route::post('/signup', 'Admin\StudentsController@signup');
+    
+    Route::Post("/save", "TypingDna@save")->name("save");
+    Route::Post("/verify", "TypingDna@verify")->name("verify");
+    Route::Post("/match", "TypingDna@match")->name("match");
 });
 
-Route::post('/login', 'StudentsController@login');
-Route::post('/signup', 'Admin\StudentsController@signup');
+Route::get('/enroll', function () { return view('enroll'); });
 
-
-Route::get('/signup', function () {
-    return view('signup');
-});
-
-Route::get('/register', function () {
-    return view('register');
-});
-
-Route::get('/result', function () {
-    return view('result');
-});
 
 Route::get('/', function () {
     return view('welcome');
-});
-
-Route::Post("/save", "TypingDna@save")->name("save");
-
-Route::get('/enroll', function () {
-    return view('enroll');
-});
-
-Route::get('/verify', function () {
-    return view('verify');
 });
 
 /* Auto-generated admin routes */
