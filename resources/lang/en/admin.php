@@ -404,5 +404,25 @@ return [
         ],
     ],
 
+    'exam' => [
+        'title' => 'Exams',
+
+        'actions' => [
+            'index' => 'Exams',
+            'create' => 'New Exam',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'exam_name' => 'Exam name',
+            'exam_code' => 'Exam code',
+            'exam_start' => 'Exam start',
+            'exam_end' => 'Exam end',
+            'total_score' => 'Total score',
+            
+        ],
+    ],
+
     // Do not delete me :) I'm used for auto-generation
 ];

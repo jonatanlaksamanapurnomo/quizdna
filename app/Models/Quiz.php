@@ -12,6 +12,7 @@ class Quiz extends Model
         'quiz_id',
         'quiz_name',
 
+
     ];
 
 

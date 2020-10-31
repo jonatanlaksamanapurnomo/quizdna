@@ -85,12 +85,12 @@
     <div class="mx-auto order-0">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link" href="#"
+                <a class="nav-link" href="#" onclick="onClickOnGoing()"
                 >On-going <span class="sr-only">(current)</span></a
                 >
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Done</a>
+                <a class="nav-link" onclick="onClickDone()">Done</a>
             </li>
         </ul>
         <button
@@ -224,61 +224,124 @@
         </div>
     </div>
 </nav>
-<div></div>
-<div class="bg">
-    <svg
-        width="100%"
-        height="100%"
-        xmlns="https://ik.imagekit.io/norice/undraw_No_data_re_kwbl_2_1_ZJSDps0I7.svg"
-        xmlns:xlink="http://www.w3.org/1999/xlink"
-    >
-        <svg
-            x="50%"
-            y="50%"
-            width="258px"
-            height="221px"
-            overflow="visible"
-        ></svg>
-    </svg>
 
-    <div class="d-flex justify-content-center">
-        <div class="row">
-            <div class="col-12">
-                <h1 class="text-center">No Exam Scheduled</h1>
-                <br/>
+<div></div>
+@if(!isset($onGoing))
+    <div class="bg">
+        <svg
+            width="100%"
+            height="100%"
+            xmlns="https://ik.imagekit.io/norice/undraw_No_data_re_kwbl_2_1_ZJSDps0I7.svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+        >
+            <svg
+                x="50%"
+                y="50%"
+                width="258px"
+                height="221px"
+                overflow="visible"
+            ></svg>
+        </svg>
+
+        <div class="d-flex justify-content-center">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="text-center">No Exam Scheduled</h1>
+                    <br/>
+                </div>
+                <div class="col-12">
+                    <p class="text-center">
+                        Ask your lecturer for the exam code and add it by
+                        pressing “Join Exam” Button
+                    </p>
+                </div>
             </div>
+        </div>
+    </div>
+@endif
+<div class="onGoing">
+    <div class="container">
+        <div class="row mt-4">
             <div class="col-12">
-                <p class="text-center">
-                    Ask your lecturer for the exam code and add it by
-                    pressing “Join Exam” Button
-                </p>
+                <div class="row">
+                    <div class="col-8">
+                        <input type="text" class="form-control"
+                               placeholder="search here">
+                    </div>
+                    <div class="col-4">
+                        <select class="form-control" id="exampleFormControlSelect1">
+                            <option>Sort By Date</option>
+                            <option>Sort By Name</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div id="recentExams" class="col-12 mt-5">
+
+                <div class="row ">
+                    @foreach($onGoing as $item)
+                        <div class="col-12">
+                            <div class="row mt-3">
+                                <div class="col-4">
+                                    <div class="d-flex justify-content-center ">
+                                        <i class="fa fa-clock-o fa-4x"></i>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <h2>{{$item->exam_name}}</h2>
+                                    <span class="font-sm">{{$item->exam_start}} -</span>
+                                    <span class="font-sm">{{$item->exam_end}}</span>
+                                </div>
+                                <div class="col-4">
+                                    <p class="lead"> Starting
+                                        in {{\Carbon\Carbon::parse($item->exam_end)->diffInHours(\Carbon\Carbon::now()) }}
+                                        Hours</p>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+
             </div>
         </div>
     </div>
 </div>
-<div class="onGoing">
-    @foreach($onGoing as $item)
-        <form method="post" action="{{url("/student/join/exam/$item->exam_code")}}">
-            @csrf
-            <input type="hidden" value="{{$item->exam_id}}">
-            <p>{{$item->student_id}}</p>
-            <p>{{$item->exam_name}}"</p>
-            <p>{{$item->exam_start}}</p>
-            <p>{{$item->exam_end}}</p>
-            <button class="btn btn-success">start</button>
-        </form>
-    @endforeach
+<div id="doneExams" class="done" style="display: none">
+    <div class="container">
+        <h3 class="text-center">Recent Exam</h3>
+        <div class="row mt-3">
+            @foreach($done as $item)
+                <div class="col-4">
+                    <p class="lead text-center">{{$item->exam_name}}</p>
+                </div>
+                <div class="col-4">
+                    <p class="lead text-center"> Submited {{$item->updated_at}} </p>
+                </div>
+                <div class="col-4">
+                    <p class="lead text-center">{{$item->total_score}}/100</p>
+
+                </div>
+            @endforeach
+        </div>
+
+    </div>
+
 </div>
-<div class="done">
-    @foreach($done as $item)
-        <form action="">
-            <input type="hidden" value="{{$item->exam_id}}">
-            <p>{{$item->student_id}}</p>
-            <p>{{$item->exam_name}}"</p>
-            <p>{{$item->exam_start}}</p>
-            <p>{{$item->exam_end}}</p>
-        </form>
-    @endforeach
-</div>
+
+<script>
+    function onClickDone() {
+        let recentExamsDiv = document.getElementById("recentExams");
+        recentExamsDiv.style.display = "none";
+        let doneExamsDiv = document.getElementById("doneExams");
+        doneExamsDiv.style.display = "block";
+    }
+
+    function onClickOnGoing() {
+        let recentExamsDiv = document.getElementById("recentExams");
+        recentExamsDiv.style.display = "block";
+        let doneExamsDiv = document.getElementById("doneExams");
+        doneExamsDiv.style.display = "none";
+    }
+</script>
 </body>
 </html>
