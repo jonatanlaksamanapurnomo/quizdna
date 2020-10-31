@@ -30,6 +30,7 @@ class StoreExam extends FormRequest
             'exam_code' => ['nullable', 'string'],
             'exam_start' => ['nullable', 'date'],
             'exam_end' => ['nullable', 'date'],
+            'total_score' => ['required', 'numeric'],
 
         ];
     }

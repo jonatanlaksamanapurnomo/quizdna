@@ -14,6 +14,7 @@ class Exam extends Model
         'exam_code',
         'exam_start',
         'exam_end',
+        'total_score'
 
     ];
 

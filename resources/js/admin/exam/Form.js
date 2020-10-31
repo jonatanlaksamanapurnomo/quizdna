@@ -9,6 +9,7 @@ Vue.component('exam-form', {
                 exam_code:  '' ,
                 exam_start:  '' ,
                 exam_end:  '' ,
+                total_score:  '' ,
                 
             }
         }

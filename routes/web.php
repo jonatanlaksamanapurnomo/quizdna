@@ -247,3 +247,19 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
         });
     });
 });
+
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
+        Route::prefix('exams')->name('exams/')->group(static function() {
+            Route::get('/',                                             'ExamsController@index')->name('index');
+            Route::get('/create',                                       'ExamsController@create')->name('create');
+            Route::post('/',                                            'ExamsController@store')->name('store');
+            Route::get('/{exam}/edit',                                  'ExamsController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'ExamsController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{exam}',                                      'ExamsController@update')->name('update');
+            Route::delete('/{exam}',                                    'ExamsController@destroy')->name('destroy');
+        });
+    });
+});

@@ -29,6 +29,7 @@ class ExamsCustomController extends Controller
     {
         $onGoing = DB::table('attempts')->join('exams', 'exam_id', '=', 'exams.id')->where('exams.exam_start', '>=', Carbon::now())->get();
         $done = DB::table('attempts')->join('exams', 'exam_id', '=', 'exams.id')->where('exams.exam_start', '<', Carbon::now())->get();
+
         return view("dashboard", [
             "onGoing" => $onGoing,
             "done" => $done

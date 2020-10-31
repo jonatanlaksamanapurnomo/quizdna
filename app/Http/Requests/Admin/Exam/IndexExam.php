@@ -25,7 +25,7 @@ class IndexExam extends FormRequest
     public function rules(): array
     {
         return [
-            'orderBy' => 'in:id,exam_name,exam_code,exam_start,exam_end|nullable',
+            'orderBy' => 'in:id,exam_name,exam_code,exam_start,exam_end,total_score|nullable',
             'orderDirection' => 'in:asc,desc|nullable',
             'search' => 'string|nullable',
             'page' => 'integer|nullable',
