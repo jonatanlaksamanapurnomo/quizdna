@@ -19,6 +19,7 @@ class CreateExamsTable extends Migration
             $table->string("exam_code")->nullable();
             $table->datetime("exam_start")->nullable();
             $table->dateTime("exam_end")->nullable();
+            $table->float('total_score');
             $table->timestamps();
         });
     }

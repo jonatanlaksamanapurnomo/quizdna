@@ -201,3 +201,17 @@ $factory->define(App\Models\Attempt::class, static function (Faker\Generator $fa
         
     ];
 });
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Exam::class, static function (Faker\Generator $faker) {
+    return [
+        'exam_name' => $faker->sentence,
+        'exam_code' => $faker->sentence,
+        'exam_start' => $faker->dateTime,
+        'exam_end' => $faker->dateTime,
+        'total_score' => $faker->randomFloat,
+        'created_at' => $faker->dateTime,
+        'updated_at' => $faker->dateTime,
+        
+        
+    ];
+});
