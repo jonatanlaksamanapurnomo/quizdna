@@ -73,7 +73,9 @@ class QuestionsController extends Controller
     public function create($id = 1)
     {
         $this->authorize('admin.question.create');
-        return view('admin.question.create', ['exams' => Exam::all(), 'exam_code' => $id]);
+        $examTarget = Exam::where('id', $id)->get();
+
+        return view('admin.question.create', ['exams' => Exam::all(), 'examTarget' => $examTarget]);
     }
 
     /**

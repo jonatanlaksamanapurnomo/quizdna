@@ -13,16 +13,16 @@ class Answer extends Model
         'exam_id',
         'student_id',
         'question_id',
-    
+
     ];
-    
-    
+
+
     protected $dates = [
         'created_at',
         'updated_at',
-    
+
     ];
-    
+
     protected $appends = ['resource_url'];
 
     /* ************************ ACCESSOR ************************* */

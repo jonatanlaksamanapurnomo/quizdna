@@ -84,10 +84,10 @@ class ExamsController extends Controller
         $exam = Exam::create($sanitized);
 
         if ($request->ajax()) {
-            return ['redirect' => url('admin/exams'), 'message' => trans('brackets/admin-ui::admin.operation.succeeded')];
+            return ['redirect' => url('admin/questions/create/' . $exam->id), 'message' => trans('brackets/admin-ui::admin.operation.succeeded')];
         }
 
-        return redirect('admin/exams');
+        return redirect('admin/questions/create');
     }
 
     /**
@@ -115,7 +115,6 @@ class ExamsController extends Controller
     {
         $this->authorize('admin.exam.edit', $exam);
         $answers = $exam->answers->groupBy("student_id");
-
         return view('admin.exam.edit', [
             'exam' => $exam,
             'answers' => $answers
