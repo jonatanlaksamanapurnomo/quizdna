@@ -24,14 +24,11 @@
   <component name="ChangeListManager">
     <list default="true" id="61959fc8-a122-4d6d-b99f-8fcd4f70b717" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/AnswersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/AnswersController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/ExamsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ExamsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/QuestionsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/QuestionsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Answer.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Answer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/admin/question/Form.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/admin/question/Form.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/admin/question/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/admin/question/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/exam/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/exam/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/question/components/form-elements.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/question/components/form-elements.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/question/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/question/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/StudentsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/StudentsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_30_211502_create_students_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_30_211502_create_students_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -227,7 +224,8 @@
       <workItem from="1604091545477" duration="5561000" />
       <workItem from="1604120862036" duration="8514000" />
       <workItem from="1604139692241" duration="4332000" />
-      <workItem from="1604149452598" duration="2829000" />
+      <workItem from="1604149452598" duration="3706000" />
+      <workItem from="1604160233005" duration="2239000" />
     </task>
     <servers />
   </component>
@@ -247,17 +245,17 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="499" y="167" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1604128412912">
+    <state x="499" y="167" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1604161534895">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="499" y="167" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.824@0.0.1536.824" timestamp="1604128412912" />
+    <state x="499" y="167" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.824@0.0.1536.824" timestamp="1604161534895" />
     <state x="277" y="57" key="SettingsEditor" timestamp="1604150786308">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="277" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1604150786308" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1604143995847">
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1604162329393">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1604143995847" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1604162329393" />
   </component>
 </project>

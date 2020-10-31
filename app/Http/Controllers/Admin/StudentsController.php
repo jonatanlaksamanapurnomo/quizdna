@@ -20,11 +20,13 @@ use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
+use Hash;
 
 class StudentsController extends Controller
 {
 
-    public function loginPassword(Request $request){
+    public function loginPassword(Request $request)
+    {
         $student = Student::where('email', $request->email)->firstOrFail();
         if (!Hash::check($student->password, bcrypt($request->password))) {
             return 'not match!!';
@@ -32,14 +34,15 @@ class StudentsController extends Controller
         return redirect('/student/dashboard');
     }
 
-    public function signup(Request $request){
+    public function signup(Request $request)
+    {
         $student = new Student;
         $student->email = $request->email;
         $student->name = $request->name;
         $student->password = bcrypt($request->password);
         $student->save();
 
-        return redirect('/student/register')->with('id', md5($student->email)); 
+        return redirect('/student/register')->with('id', md5($student->email));
     }
 
     /**
@@ -52,7 +55,7 @@ class StudentsController extends Controller
     {
         // create and AdminListing instance for a specific model and
         $data = AdminListing::create(Student::class)->processRequestAndGet(
-            // pass the request with params
+        // pass the request with params
             $request,
 
             // set columns to query
@@ -77,8 +80,8 @@ class StudentsController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @throws AuthorizationException
      * @return Factory|View
+     * @throws AuthorizationException
      */
     public function create()
     {
@@ -112,8 +115,8 @@ class StudentsController extends Controller
      * Display the specified resource.
      *
      * @param Student $student
-     * @throws AuthorizationException
      * @return void
+     * @throws AuthorizationException
      */
     public function show(Student $student)
     {
@@ -126,8 +129,8 @@ class StudentsController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param Student $student
-     * @throws AuthorizationException
      * @return Factory|View
+     * @throws AuthorizationException
      */
     public function edit(Student $student)
     {
@@ -169,8 +172,8 @@ class StudentsController extends Controller
      *
      * @param DestroyStudent $request
      * @param Student $student
-     * @throws Exception
      * @return ResponseFactory|RedirectResponse|Response
+     * @throws Exception
      */
     public function destroy(DestroyStudent $request, Student $student)
     {
@@ -187,10 +190,10 @@ class StudentsController extends Controller
      * Remove the specified resources from storage.
      *
      * @param BulkDestroyStudent $request
-     * @throws Exception
      * @return Response|bool
+     * @throws Exception
      */
-    public function bulkDestroy(BulkDestroyStudent $request) : Response
+    public function bulkDestroy(BulkDestroyStudent $request): Response
     {
         DB::transaction(static function () use ($request) {
             collect($request->data['ids'])

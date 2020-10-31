@@ -56,6 +56,7 @@ class AnswersController extends Controller
         return view('admin.answer.index', ['data' => $data]);
     }
 
+
     /**
      * Show the form for creating a new resource.
      *

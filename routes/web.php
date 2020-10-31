@@ -13,31 +13,41 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::prefix('student')->name('student/')->group(static function() {
-    Route::get('/signup', function () { return view('signup'); });
-    Route::get('/register', function () { return view('register'); })->name('register');
+Route::prefix('student')->name('student/')->group(static function () {
+    Route::get('/signup', function () {
+        return view('signup');
+    });
+    Route::get('/register', function () {
+        return view('register');
+    })->name('register');
 
-    Route::get('/login', function () { return view('login'); });
+    Route::get('/login', function () {
+        return view('login');
+    });
 
-    Route::get('/authenticate', function () { return view('authenticate'); });
-    Route::get('/result', function () { return view('result'); });
+    Route::get('/authenticate', function () {
+        return view('authenticate');
+    });
+    Route::get('/result', function () {
+        return view('result');
+    });
 
-    Route::get('/dashboard', function(){return view('dashboard');});
-
-
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    });
     Route::post('/login/password', 'Admin\StudentsController@loginPassword');
     Route::post('/signup', 'Admin\StudentsController@signup');
-    
     Route::Post("/save", "TypingDna@save")->name("save");
     Route::Post("/verify", "TypingDna@verify")->name("verify");
     Route::Post("/match", "TypingDna@match")->name("match");
+    Route::post("/join", 'ExamsCustomController@join')->name("join");
 });
 
-Route::get('/enroll', function () { return view('enroll'); });
-
-
+//Route::get('/enroll', function () { return view('enroll'); });
+//
+//
 Route::get('/', function () {
-    return view('welcome');
+    return redirect("/student/login");
 });
 
 /* Auto-generated admin routes */
