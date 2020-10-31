@@ -116767,6 +116767,64 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/admin/attempt/Form.js":
+/*!********************************************!*\
+  !*** ./resources/js/admin/attempt/Form.js ***!
+  \********************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Form/AppForm */ "./resources/js/admin/app-components/Form/AppForm.js");
+
+Vue.component('attempt-form', {
+  mixins: [_app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  data: function data() {
+    return {
+      form: {
+        exam_id: '',
+        student_id: ''
+      }
+    };
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/admin/attempt/Listing.js":
+/*!***********************************************!*\
+  !*** ./resources/js/admin/attempt/Listing.js ***!
+  \***********************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Listing/AppListing */ "./resources/js/admin/app-components/Listing/AppListing.js");
+
+Vue.component('attempt-listing', {
+  mixins: [_app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__["default"]]
+});
+
+/***/ }),
+
+/***/ "./resources/js/admin/attempt/index.js":
+/*!*********************************************!*\
+  !*** ./resources/js/admin/attempt/index.js ***!
+  \*********************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Listing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Listing */ "./resources/js/admin/attempt/Listing.js");
+/* harmony import */ var _Form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Form */ "./resources/js/admin/attempt/Form.js");
+
+
+
+/***/ }),
+
 /***/ "./resources/js/admin/bootstrap.js":
 /*!*****************************************!*\
   !*** ./resources/js/admin/bootstrap.js ***!
@@ -116896,6 +116954,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _question__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./question */ "./resources/js/admin/question/index.js");
 /* harmony import */ var _student__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./student */ "./resources/js/admin/student/index.js");
 /* harmony import */ var _answer__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./answer */ "./resources/js/admin/answer/index.js");
+/* harmony import */ var _attempt__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./attempt */ "./resources/js/admin/attempt/index.js");
+
 
 
 
@@ -117258,7 +117318,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Data\hackathon\typingdna\quizdna\resources\js\admin\admin.js */"./resources/js/admin/admin.js");
+module.exports = __webpack_require__(/*! C:\QuizDna\resources\js\admin\admin.js */"./resources/js/admin/admin.js");
 
 
 /***/ })

@@ -7,3 +7,4 @@ import './exam';
 import './question';
 import './student';
 import './answer';
+import './attempt';

@@ -32,15 +32,15 @@ Route::prefix('student')->name('student/')->group(static function () {
         return view('result');
     });
 
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    });
+    Route::get('/dashboard', "ExamsCustomController@getDashboard");
     Route::post('/login/password', 'Admin\StudentsController@loginPassword');
     Route::post('/signup', 'Admin\StudentsController@signup');
     Route::Post("/save", "TypingDna@save")->name("save");
     Route::Post("/verify", "TypingDna@verify")->name("verify");
     Route::Post("/match", "TypingDna@match")->name("match");
     Route::post("/join", 'ExamsCustomController@join')->name("join");
+    Route::post("/join/exam/{exam_code}", 'ExamsCustomController@getExamRoom')->name("join-room");
+//    Route::get("/join/exam/{exam_code}", 'ExamsCustomController@getExamRoom')->name("join-room");
 });
 
 //Route::get('/enroll', function () { return view('enroll'); });
@@ -216,3 +216,34 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
     });
 });
 Route::post('admin/edit/{answer}', 'AnswerEditorController@editAnswer')->name('edit-answer');
+
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function () {
+        Route::prefix('attempts')->name('attempts/')->group(static function () {
+            Route::get('/', 'AttemptController@index')->name('index');
+            Route::get('/create', 'AttemptController@create')->name('create');
+            Route::post('/', 'AttemptController@store')->name('store');
+            Route::get('/{attempt}/edit', 'AttemptController@edit')->name('edit');
+            Route::post('/bulk-destroy', 'AttemptController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{attempt}', 'AttemptController@update')->name('update');
+            Route::delete('/{attempt}', 'AttemptController@destroy')->name('destroy');
+        });
+    });
+});
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function () {
+        Route::prefix('attempts')->name('attempts/')->group(static function () {
+            Route::get('/', 'AttemptsController@index')->name('index');
+            Route::get('/create', 'AttemptsController@create')->name('create');
+            Route::post('/', 'AttemptsController@store')->name('store');
+            Route::get('/{attempt}/edit', 'AttemptsController@edit')->name('edit');
+            Route::post('/bulk-destroy', 'AttemptsController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{attempt}', 'AttemptsController@update')->name('update');
+            Route::delete('/{attempt}', 'AttemptsController@destroy')->name('destroy');
+        });
+    });
+});

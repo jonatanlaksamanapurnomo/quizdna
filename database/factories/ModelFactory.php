@@ -183,3 +183,21 @@ $factory->define(App\Models\Answer::class, static function (Faker\Generator $fak
         
     ];
 });
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Attempt::class, static function (Faker\Generator $faker) {
+    return [
+        
+        
+    ];
+});
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Attempt::class, static function (Faker\Generator $faker) {
+    return [
+        'exam_id' => $faker->randomNumber(5),
+        'student_id' => $faker->randomNumber(5),
+        'created_at' => $faker->dateTime,
+        'updated_at' => $faker->dateTime,
+        
+        
+    ];
+});

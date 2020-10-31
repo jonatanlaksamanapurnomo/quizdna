@@ -372,5 +372,37 @@ return [
         ],
     ],
 
+    'attempt' => [
+        'title' => 'Attempt',
+
+        'actions' => [
+            'index' => 'Attempt',
+            'create' => 'New Attempt',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            
+        ],
+    ],
+
+    'attempt' => [
+        'title' => 'Attempts',
+
+        'actions' => [
+            'index' => 'Attempts',
+            'create' => 'New Attempt',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'exam_id' => 'Exam',
+            'student_id' => 'Student',
+            
+        ],
+    ],
+
     // Do not delete me :) I'm used for auto-generation
 ];
