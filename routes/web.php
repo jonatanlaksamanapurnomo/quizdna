@@ -41,6 +41,8 @@ Route::prefix('student')->name('student/')->group(static function () {
     Route::post("/join", 'ExamsCustomController@join')->name("join");
     Route::post("/join/exam/{exam_code}", 'ExamsCustomController@getExamRoom')->name("join-room");
 //    Route::get("/join/exam/{exam_code}", 'ExamsCustomController@getExamRoom')->name("join-room");
+
+    Route::post('/answer', 'AnswerEditorController@insertAnswer')->name('answer');
 });
 
 //Route::get('/enroll', function () { return view('enroll'); });

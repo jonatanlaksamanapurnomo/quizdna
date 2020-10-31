@@ -37,14 +37,11 @@ class ExamsCustomController extends Controller
 
     public function getExamRoom(Request $request, $examCode)
     {
-
         $exam = Exam::where("exam_code", $examCode)->first();
-//        questions
         $question = $exam->questions;
 
-
         return view("exam", [
-            "examName" => $exam->exam_name,
+            "exam" => $exam,
             "questions" => $question
         ]);
     }
