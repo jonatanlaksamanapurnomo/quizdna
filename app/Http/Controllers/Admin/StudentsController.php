@@ -27,17 +27,9 @@ class StudentsController extends Controller
     public function loginPassword(Request $request){
         $student = Student::where('email', $request->email)->firstOrFail();
         if (!Hash::check($student->password, bcrypt($request->password))) {
-            return ' not match!!';
+            return 'not match!!';
         }
-        return redirect('/student/register');
-    }
-
-    public function loginTypeDNA(Request $request){
-        $student = Student::where('email', $request->email)->firstOrFail();
-
-        return response()->json([
-            'userId' => '',
-        ]);
+        return redirect('/student/dashboard');
     }
 
     public function signup(Request $request){
@@ -47,9 +39,6 @@ class StudentsController extends Controller
         $student->password = bcrypt($request->password);
         $student->save();
 
-        // return response()->json([
-        //     'id' => $student->id,
-        // ]);
         return redirect('/student/register')->with('id', md5($student->email)); 
     }
 

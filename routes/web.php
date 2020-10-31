@@ -22,9 +22,10 @@ Route::prefix('student')->name('student/')->group(static function() {
     Route::get('/authenticate', function () { return view('authenticate'); });
     Route::get('/result', function () { return view('result'); });
 
+    Route::get('/dashboard', function(){return view('dashboard');});
+
 
     Route::post('/login/password', 'Admin\StudentsController@loginPassword');
-    Route::post('/login/typedna', 'Admin\StudentsController@loginTypeDNA');
     Route::post('/signup', 'Admin\StudentsController@signup');
     
     Route::Post("/save", "TypingDna@save")->name("save");
