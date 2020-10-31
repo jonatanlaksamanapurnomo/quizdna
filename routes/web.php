@@ -133,7 +133,7 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
     Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function () {
         Route::prefix('questions')->name('questions/')->group(static function () {
             Route::get('/', 'QuestionsController@index')->name('index');
-            Route::get('/create', 'QuestionsController@create')->name('create');
+            Route::get('/create/{id}', 'QuestionsController@create')->name('create');
             Route::post('/', 'QuestionsController@store')->name('store');
             Route::get('/{question}/edit', 'QuestionsController@edit')->name('edit');
             Route::post('/bulk-destroy', 'QuestionsController@bulkDestroy')->name('bulk-destroy');

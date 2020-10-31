@@ -33,7 +33,7 @@
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
         <multiselect
             v-model="form.exam"
-            :options="{{$exams->toJson()}}"
+            :options="{{$examTarget->toJson()}}"
             :multiple="false"
             track-by="id"
             label="exam_name"

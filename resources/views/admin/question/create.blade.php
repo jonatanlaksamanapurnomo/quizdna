@@ -3,7 +3,6 @@
 @section('title', trans('admin.question.actions.create'))
 
 @section('body')
-
     <div class="container-xl">
 
         <div class="card">
