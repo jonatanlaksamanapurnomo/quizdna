@@ -30,12 +30,4 @@
     </div>
 </div>
 
-<div class="form-group row align-items-center" :class="{'has-danger': errors.has('exam_id'), 'has-success': fields.exam_id && fields.exam_id.valid }">
-    <label for="exam_id" class="col-form-label text-md-right" :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.student.columns.exam_id') }}</label>
-        <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.exam_id" v-validate="'required|integer'" @input="validate($event)" class="form-control" :class="{'form-control-danger': errors.has('exam_id'), 'form-control-success': fields.exam_id && fields.exam_id.valid}" id="exam_id" name="exam_id" placeholder="{{ trans('admin.student.columns.exam_id') }}">
-        <div v-if="errors.has('exam_id')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('exam_id') }}</div>
-    </div>
-</div>
-
 

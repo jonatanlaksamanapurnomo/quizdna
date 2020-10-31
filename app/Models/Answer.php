@@ -4,19 +4,18 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Student extends Model
+class Answer extends Model
 {
     protected $fillable = [
-        'email',
-        'password',
-        'name',
+        'answer',
+        'score',
+        'typingdna_score',
+        'exam_id',
+        'student_id',
+        'question_id',
     
     ];
     
-    protected $hidden = [
-        'password',
-    
-    ];
     
     protected $dates = [
         'created_at',
@@ -30,6 +29,6 @@ class Student extends Model
 
     public function getResourceUrlAttribute()
     {
-        return url('/admin/students/'.$this->getKey());
+        return url('/admin/answers/'.$this->getKey());
     }
 }

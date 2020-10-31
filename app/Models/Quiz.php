@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use App\Models\Task;
+use Illuminate\Database\Eloquent\Model;
+use App\Models\Student;
+
 class Quiz extends Model
 {
     protected $fillable = [
@@ -25,12 +27,17 @@ class Quiz extends Model
 
     public function getResourceUrlAttribute()
     {
-        return url('/admin/quizzes/'.$this->getKey());
+        return url('/admin/quizzes/' . $this->getKey());
     }
 
     public function tasksWithRelationships()
     {
         return $this->hasMany(Task::class);
+    }
+
+    public function studentWithRelationship()
+    {
+        return $this->hasMany(Student::class);
     }
 
 }

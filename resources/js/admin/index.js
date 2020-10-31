@@ -6,3 +6,4 @@ import './quiz';
 import './exam';
 import './question';
 import './student';
+import './answer';

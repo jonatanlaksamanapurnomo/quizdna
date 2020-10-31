@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Requests\Admin\Student;
+namespace App\Http\Requests\Admin\Answer;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Gate;
 
-class IndexStudent extends FormRequest
+class BulkDestroyAnswer extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -14,7 +14,7 @@ class IndexStudent extends FormRequest
      */
     public function authorize(): bool
     {
-        return Gate::allows('admin.student.index');
+        return Gate::allows('admin.answer.bulk-delete');
     }
 
     /**
@@ -25,12 +25,7 @@ class IndexStudent extends FormRequest
     public function rules(): array
     {
         return [
-            'orderBy' => 'in:id,email,name|nullable',
-            'orderDirection' => 'in:asc,desc|nullable',
-            'search' => 'string|nullable',
-            'page' => 'integer|nullable',
-            'per_page' => 'integer|nullable',
-
+            'ids.*' => 'integer'
         ];
     }
 }
