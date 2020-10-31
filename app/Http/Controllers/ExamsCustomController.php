@@ -28,7 +28,8 @@ class ExamsCustomController extends Controller
     public function getDashboard(Request $request)
     {
         $onGoing = DB::table('attempts')->join('exams', 'exam_id', '=', 'exams.id')->where('exams.exam_start', '>=', Carbon::now())->get();
-        $done = DB::table('attempts')->join('exams', 'exam_id', '=', 'exams.id')->where('exams.exam_start', '<', Carbon::now())->get();
+        $done = DB::table('attempts')->join('exams', 'exam_id', '=', 'exams.id')
+        ->whereRaw('attempts.exam_id in (select exam_id from answers)')->get();
 
         return view("dashboard", [
             "onGoing" => $onGoing,

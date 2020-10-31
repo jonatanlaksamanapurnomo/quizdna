@@ -7,9 +7,9 @@
             <li class="nav-item"><a class="nav-link" href="{{ url('admin/exams') }}"><i
                         class="nav-icon icon-diamond"></i> {{ trans('admin.exam.title') }}</a></li>
             <li class="nav-item"><a class="nav-link" href="{{ url('admin/questions') }}"><i class="nav-icon icon-star"></i> {{ trans('admin.question.title') }}</a></li>
-           <li class="nav-item"><a class="nav-link" href="{{ url('admin/students') }}"><i class="nav-icon icon-graduation"></i> {{ trans('admin.student.title') }}</a></li>
+           <!-- <li class="nav-item"><a class="nav-link" href="{{ url('admin/students') }}"><i class="nav-icon icon-graduation"></i> {{ trans('admin.student.title') }}</a></li>
            <li class="nav-item"><a class="nav-link" href="{{ url('admin/answers') }}"><i class="nav-icon icon-compass"></i> {{ trans('admin.answer.title') }}</a></li>
-           <li class="nav-item"><a class="nav-link" href="{{ url('admin/attempts') }}"><i class="nav-icon icon-energy"></i> {{ trans('admin.attempt.title') }}</a></li>
+           <li class="nav-item"><a class="nav-link" href="{{ url('admin/attempts') }}"><i class="nav-icon icon-energy"></i> {{ trans('admin.attempt.title') }}</a></li> -->
            {{-- Do not delete me :) I'm used for auto-generation menu items --}}
 
             <li class="nav-title">{{ trans('brackets/admin-ui::admin.sidebar.settings') }}</li>

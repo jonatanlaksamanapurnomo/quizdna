@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Answer;
+use App\Models\Attempt;
 
 class AnswerEditorController extends Controller
 {
@@ -30,6 +31,7 @@ class AnswerEditorController extends Controller
 
         $answer->answer = $answerByStudent;
         $answer->save();
+
         return response()->json("success");
     }
 
@@ -39,6 +41,11 @@ class AnswerEditorController extends Controller
         $answer = Answer::find($id);
         $answer->score = $givenScore;
         $answer->save();
+
+        $attempt = Attempt::where('exam_id', $answer->exam_id)->where('student_id',1)->first();
+        // dd($attempt->id);
+        $attempt->total_score = $attempt->total_score + $givenScore;
+        $attempt->save();
         return redirect()->back();
     }
 }

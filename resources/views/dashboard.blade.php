@@ -293,9 +293,23 @@
                                     <span class="font-sm">{{$item->exam_end}}</span>
                                 </div>
                                 <div class="col-4">
+                                    @if(\Carbon\Carbon::parse($item->exam_start, 'Asia/Jakarta')->diffInHours(\Carbon\Carbon::now('+07:00')) <= 0)
+                                    <form
+                                        method="POST"
+                                        action="{{ url('/student/join/exam/') . '/' .$item->exam_code }}">
+                                        {{ csrf_field() }}
+                                        <div
+                                            class="col-12 d-flex justify-content-center"
+                                        >
+                                            <button class="btn btn-primary">Start</button>
+                                        </div>
+                                    </form>    
+                                    @else 
                                     <p class="lead"> Starting
-                                        in {{\Carbon\Carbon::parse($item->exam_end)->diffInHours(\Carbon\Carbon::now()) }}
+                                        in {{\Carbon\Carbon::parse($item->exam_start, 'Asia/Jakarta')->diffInHours(\Carbon\Carbon::now('+07:00')) }}
                                         Hours</p>
+                                    @endif
+                                    
                                 </div>
                             </div>
                         </div>
