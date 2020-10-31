@@ -135,3 +135,51 @@ $factory->define(App\Models\Student::class, static function (Faker\Generator $fa
         
     ];
 });
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Student::class, static function (Faker\Generator $faker) {
+    return [
+        'email' => $faker->email,
+        'password' => bcrypt($faker->password),
+        'name' => $faker->firstName,
+        'created_at' => $faker->dateTime,
+        'updated_at' => $faker->dateTime,
+        
+        
+    ];
+});
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Answer::class, static function (Faker\Generator $faker) {
+    return [
+        
+        
+    ];
+});
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Answer::class, static function (Faker\Generator $faker) {
+    return [
+        'answer' => $faker->text(),
+        'score' => $faker->sentence,
+        'typingdna_score' => $faker->sentence,
+        'exam_id' => $faker->randomNumber(5),
+        'student_id' => $faker->randomNumber(5),
+        'created_at' => $faker->dateTime,
+        'updated_at' => $faker->dateTime,
+        
+        
+    ];
+});
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Answer::class, static function (Faker\Generator $faker) {
+    return [
+        'answer' => $faker->text(),
+        'score' => $faker->sentence,
+        'typingdna_score' => $faker->sentence,
+        'exam_id' => $faker->randomNumber(5),
+        'student_id' => $faker->randomNumber(5),
+        'question_id' => $faker->randomNumber(5),
+        'created_at' => $faker->dateTime,
+        'updated_at' => $faker->dateTime,
+        
+        
+    ];
+});

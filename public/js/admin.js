@@ -116632,6 +116632,68 @@ new vue__WEBPACK_IMPORTED_MODULE_11___default.a({
 
 /***/ }),
 
+/***/ "./resources/js/admin/answer/Form.js":
+/*!*******************************************!*\
+  !*** ./resources/js/admin/answer/Form.js ***!
+  \*******************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Form/AppForm */ "./resources/js/admin/app-components/Form/AppForm.js");
+
+Vue.component('answer-form', {
+  mixins: [_app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  data: function data() {
+    return {
+      form: {
+        answer: '',
+        score: '',
+        typingdna_score: '',
+        exam_id: '',
+        student_id: '',
+        question_id: ''
+      }
+    };
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/admin/answer/Listing.js":
+/*!**********************************************!*\
+  !*** ./resources/js/admin/answer/Listing.js ***!
+  \**********************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Listing/AppListing */ "./resources/js/admin/app-components/Listing/AppListing.js");
+
+Vue.component('answer-listing', {
+  mixins: [_app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__["default"]]
+});
+
+/***/ }),
+
+/***/ "./resources/js/admin/answer/index.js":
+/*!********************************************!*\
+  !*** ./resources/js/admin/answer/index.js ***!
+  \********************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Listing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Listing */ "./resources/js/admin/answer/Listing.js");
+/* harmony import */ var _Form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Form */ "./resources/js/admin/answer/Form.js");
+
+
+
+/***/ }),
+
 /***/ "./resources/js/admin/app-components/Form/AppForm.js":
 /*!***********************************************************!*\
   !*** ./resources/js/admin/app-components/Form/AppForm.js ***!
@@ -116833,6 +116895,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _exam__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./exam */ "./resources/js/admin/exam/index.js");
 /* harmony import */ var _question__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./question */ "./resources/js/admin/question/index.js");
 /* harmony import */ var _student__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./student */ "./resources/js/admin/student/index.js");
+/* harmony import */ var _answer__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./answer */ "./resources/js/admin/answer/index.js");
+
 
 
 
@@ -117084,8 +117148,7 @@ Vue.component('student-form', {
       form: {
         email: '',
         password: '',
-        name: '',
-        exam_id: ''
+        name: ''
       }
     };
   }

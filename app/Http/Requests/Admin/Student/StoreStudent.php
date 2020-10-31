@@ -15,8 +15,7 @@ class StoreStudent extends FormRequest
      */
     public function authorize(): bool
     {
-        return true;
-        // return Gate::allows('admin.student.create');
+        return Gate::allows('admin.student.create');
     }
 
     /**
@@ -30,7 +29,6 @@ class StoreStudent extends FormRequest
             'email' => ['required', 'email', 'string'],
             'password' => ['required', 'confirmed', 'min:7', 'regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9]).*$/', 'string'],
             'name' => ['required', 'string'],
-            'exam_id' => ['required', 'integer'],
             
         ];
     }

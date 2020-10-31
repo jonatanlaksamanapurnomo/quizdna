@@ -240,5 +240,137 @@ return [
         ],
     ],
 
+    'student' => [
+        'title' => 'Students',
+
+        'actions' => [
+            'index' => 'Students',
+            'create' => 'New Student',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'email' => 'Email',
+            'password' => 'Password',
+            'name' => 'Name',
+            
+        ],
+    ],
+
+    'answer' => [
+        'title' => 'Answers',
+
+        'actions' => [
+            'index' => 'Answers',
+            'create' => 'New Answer',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            
+        ],
+    ],
+
+    'answer' => [
+        'title' => 'Answers',
+
+        'actions' => [
+            'index' => 'Answers',
+            'create' => 'New Answer',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'answer' => 'Answer',
+            'score' => 'Score',
+            'typingdna_score' => 'Typingdna score',
+            'exam_id' => 'Exam',
+            'student_id' => 'Student',
+            
+        ],
+    ],
+
+    'answer' => [
+        'title' => 'Answers',
+
+        'actions' => [
+            'index' => 'Answers',
+            'create' => 'New Answer',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'answer' => 'Answer',
+            'score' => 'Score',
+            'typingdna_score' => 'Typingdna score',
+            'exam_id' => 'Exam',
+            'student_id' => 'Student',
+            'question_id' => 'Question',
+            
+        ],
+    ],
+
+    'student' => [
+        'title' => 'Students',
+
+        'actions' => [
+            'index' => 'Students',
+            'create' => 'New Student',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'email' => 'Email',
+            'password' => 'Password',
+            'name' => 'Name',
+            'exam_id' => 'Exam',
+            
+        ],
+    ],
+
+    'student' => [
+        'title' => 'Students',
+
+        'actions' => [
+            'index' => 'Students',
+            'create' => 'New Student',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'email' => 'Email',
+            'password' => 'Password',
+            'name' => 'Name',
+            
+        ],
+    ],
+
+    'answer' => [
+        'title' => 'Answers',
+
+        'actions' => [
+            'index' => 'Answers',
+            'create' => 'New Answer',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'answer' => 'Answer',
+            'score' => 'Score',
+            'typingdna_score' => 'Typingdna score',
+            'exam_id' => 'Exam',
+            'student_id' => 'Student',
+            'question_id' => 'Question',
+            
+        ],
+    ],
+
     // Do not delete me :) I'm used for auto-generation
 ];

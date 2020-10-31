@@ -114,9 +114,11 @@ class ExamsController extends Controller
     public function edit(Exam $exam)
     {
         $this->authorize('admin.exam.edit', $exam);
+        $answers = $exam->answers->groupBy("student_id");
 
         return view('admin.exam.edit', [
-            'exam' => $exam
+            'exam' => $exam,
+            'answers' => $answers
         ]);
     }
 

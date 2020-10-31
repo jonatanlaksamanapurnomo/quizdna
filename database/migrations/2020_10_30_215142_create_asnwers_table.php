@@ -13,15 +13,17 @@ class CreateAsnwersTable extends Migration
      */
     public function up()
     {
-        Schema::create('asnwers', function (Blueprint $table) {
+        Schema::create('answers', function (Blueprint $table) {
             $table->increments("id");
             $table->text("answer");
-            $table->string("score");
-            $table->string("typingdna_score");
+            $table->string("score")->nullable();
+            $table->string("typingdna_score")->nullable();
             $table->integer('exam_id')->unsigned();
             $table->foreign('exam_id')->references('id')->on('exams')->onDelete('cascade');
             $table->integer('student_id')->unsigned();
             $table->foreign('student_id')->references('id')->on('students')->onDelete('cascade');
+            $table->integer('question_id')->unsigned();
+            $table->foreign('question_id')->references('id')->on('questions')->onDelete('cascade');
             $table->timestamps();
         });
     }

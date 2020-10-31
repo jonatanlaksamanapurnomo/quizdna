@@ -8,7 +8,6 @@ Vue.component('student-form', {
                 email:  '' ,
                 password:  '' ,
                 name:  '' ,
-                exam_id:  '' ,
                 
             }
         }

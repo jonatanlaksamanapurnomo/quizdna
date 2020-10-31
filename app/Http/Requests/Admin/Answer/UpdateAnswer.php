@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Requests\Admin\Student;
+namespace App\Http\Requests\Admin\Answer;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Validation\Rule;
 
-class UpdateStudent extends FormRequest
+class UpdateAnswer extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -15,7 +15,7 @@ class UpdateStudent extends FormRequest
      */
     public function authorize(): bool
     {
-        return Gate::allows('admin.student.edit', $this->student);
+        return Gate::allows('admin.answer.edit', $this->answer);
     }
 
     /**
@@ -26,9 +26,12 @@ class UpdateStudent extends FormRequest
     public function rules(): array
     {
         return [
-            'email' => ['sometimes', 'email', 'string'],
-            'password' => ['sometimes', 'confirmed', 'min:7', 'regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9]).*$/', 'string'],
-            'name' => ['sometimes', 'string'],
+            'answer' => ['sometimes', 'string'],
+            'score' => ['nullable', 'string'],
+            'typingdna_score' => ['nullable', 'string'],
+            'exam_id' => ['sometimes', 'integer'],
+            'student_id' => ['sometimes', 'integer'],
+            'question_id' => ['sometimes', 'integer'],
             
         ];
     }
